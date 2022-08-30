@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
 public class TestExecutor {
     public static void start(Class testClass) {
         List<Method> listTests = new ArrayList<>();
@@ -17,7 +16,7 @@ public class TestExecutor {
 
             for (Method method: testClass.getMethods()
             ) {
-                Annotation annoTest = method.getAnnotation(Test1.class);
+                Annotation annoTest = method.getAnnotation(TestOne.class);
                 if (annoTest != null) {
                     listTests.add(method);
                     continue;
@@ -45,7 +44,7 @@ public class TestExecutor {
             listTests.sort(new Comparator<>() {
                 @Override
                 public int compare(Method o1, Method o2) {
-                    return o2.getAnnotation(Test1.class).priority() - o1.getAnnotation(Test1.class).priority();
+                    return o2.getAnnotation(TestOne.class).priority() - o1.getAnnotation(TestOne.class).priority();
                 }
             });
 
