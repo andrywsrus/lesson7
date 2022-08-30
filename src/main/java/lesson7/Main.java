@@ -5,3 +5,4 @@ public class Main {
         TestExecutor.start(Tests.class);
     }
 }
+
